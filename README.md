@@ -9,6 +9,7 @@
 
 
 1. Feature Extraction
+
 ![d1](image/d1.png)
 
 - `--database_path ./database.db`: SIFT 키포인트·디스크립터를 저장할 SQLite DB 생성
@@ -18,6 +19,7 @@
 
 
 2. Feature Matching
+
 ![d2](image/d2.png)
 
 - `--database_path ./database.db`: 이전 단계에서 생성된 DB 사용
@@ -25,6 +27,7 @@
 
 
 3. Sparse Reconstruction (Mapper)
+
 ![d3](image/d3.png)
 
 - `--output_path ./sparse` : 결과를 sparse/0/ 폴더에 저장
@@ -34,6 +37,7 @@
 
 
 4. Sparse → PLY 변환
+
 ![d4](image/d4.png)
 
 - `--input_path ./sparse/0`: 바이너리 결과 폴더
@@ -42,6 +46,7 @@
 
 
 5. Sparse → TXT 변환
+
 ![d5](image/d5.png)
 
 - `--output_path` : ./sparse_txt: cameras.txt, images.txt, points3D.txt 생성
