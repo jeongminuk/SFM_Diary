@@ -122,4 +122,4 @@ Shift + 왼쪽 클릭으로 “포인트 하나 이상”을 선택하세요.
     - `points3D.txt` : 3D 포인트 정보 (텍스트)
 
 ## 참고자료 
-https://drive.google.com/file/d/1ydHn-Xp8cNX7QNxc8W-sJjiDoSzSHVBk/view?usp=share_link (데이터 셋 활용)
+https://colmap.github.io/datasets.html# (데이터 셋 활용)
