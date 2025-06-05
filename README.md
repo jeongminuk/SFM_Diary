@@ -1,11 +1,30 @@
-# SFM_Diary
-Structure From Motion
+# Person‐Hall SfM & 3D Visualization
 
-###
+이 리포지터리는 COLMAP을 이용해 “person-hall” 이미지 세트를 Structure-From-Motion(SfM)으로 처리한 뒤, Python(Open3D+OpenCV) 스크립트를 통해 3D 점군에서 포인트를 선택하면 해당 사진이 팝업되는 기능을 구현한 예시를 담고 있습니다.
 
-이 프로젝트를 계획하게 된 계기는 일기를 쓸 때 오늘하루 내가 뭐했는지 기억이 안나고 시간 순서대로 뭐했는지 궁금할 때 사진첩을 기반으로 오늘 하루 일정에 대한 타임라인을 만들어서 일기 쓸 때 편하게 해주면 좋겠다는 생각이 들어서 계획하게 되었습니다. 
-또 더욱 기억해내기 편하게 Structure From Motion을 통해서 이동한 동선이나 봤던 건물, 장소를 보여주면 좋을 것 같다는 생각이 들어 SFM을 구현해보고자 합니다.
+---
 
+## 프로젝트 구조
+
+person-hall/
+├── images/ # 원본 이미지 폴더
+│ ├ img00001.jpg
+│ ├ img00002.jpg
+│ └ …
+├── database.db # COLMAP Feature Extraction & Matching 결과 (SQLite DB)
+├── sparse/
+│ └ 0/
+│ ├ cameras.bin # COLMAP Mapper 결과: 카메라 파라미터 바이너리
+│ ├ images.bin # COLMAP Mapper 결과: 이미지별 포즈 바이너리
+│ ├ points3D.bin # COLMAP Mapper 결과: 3D 포인트클라우드 바이너리
+│ └ project.ini # COLMAP 프로젝트 설정
+├── sparse/0/ply_out/
+│ └ points3D.ply # PLY 포인트클라우드 (시각화용)
+├── sparse_txt/
+│ ├ cameras.txt # (TXT 형식) 카메라 내부 파라미터
+│ ├ images.txt # (TXT 형식) 이미지별 쿼터니언 + 이동벡터 + 파일명
+│ └ points3D.txt # (TXT 형식) 3D 포인트 정보
+└── visualize_person_hall.py # Python 스크립트: 3D 뷰어에서 포인트 선택 시 사진 팝업
 
 아래 에러가 발생한 이유는, 최신 Open3D에서 VisualizerWithEditing 객체에 더 이상 register_mouse_callback 메서드를 제공하지 않기 때문입니다. 대신, Open3D의 “Picking Mode” (Shift + 왼쪽 클릭) 기능으로 포인트를 선택한 뒤, 윈도우를 닫은 이후에 get_picked_points()를 호출하여 선택된 포인트 인덱스를 가져오는 방식을 사용해야 합니다.
 
