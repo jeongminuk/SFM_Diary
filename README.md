@@ -104,4 +104,5 @@ Shift + 왼쪽 클릭으로 “포인트 하나 이상”을 선택하세요.
     - `images.txt` : 이미지별 쿼터니언·이동벡터·파일명 (텍스트)
     - `points3D.txt` : 3D 포인트 정보 (텍스트)
 
-참고자료 : https://colmap.github.io/datasets.html# (데이터 셋 활용)
+## 참고자료 
+https://colmap.github.io/datasets.html# (데이터 셋 활용)
