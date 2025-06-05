@@ -51,10 +51,13 @@
 
 - `--output_path` : ./sparse_txt: cameras.txt, images.txt, points3D.txt 생성
 
+
 - **visualize_person_hall.py**  
+  
   Python 스크립트: 3D 뷰어에서 포인트 선택 시 해당 사진 팝업
 
 **colmap GUI**
+
 ![colmap GUI](image/colmap_gui.png)
 ![colmap GUI image](image/colmap_gui_spec.png)
 
