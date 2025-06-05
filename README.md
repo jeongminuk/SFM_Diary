@@ -10,31 +10,40 @@
 
 1. Feature Extraction
 ![d1](image/d1.png)
+
 - `--database_path ./database.db`: SIFT 키포인트·디스크립터를 저장할 SQLite DB 생성
 - `--image_path ./images`: 원본 이미지가 들어 있는 폴더
 - `--ImageReader.single_camera 1`: 모든 이미지를 단일 카메라 모델로 취급
 - `--SiftExtraction.num_threads 8`: 멀티스레드(코어 수) 설정
 
+
 2. Feature Matching
 ![d2](image/d2.png)
+
 - `--database_path ./database.db`: 이전 단계에서 생성된 DB 사용
 - `--SiftMatching.num_threads 8`: 멀티스레드 매칭
 
+
 3. Sparse Reconstruction (Mapper)
 ![d3](image/d3.png)
+
 - `--output_path ./sparse` : 결과를 sparse/0/ 폴더에 저장
 - `--Mapper.num_threads 8`: 멀티스레드 맵핑
 - `--Mapper.init_min_tri_angle 4`: 초기 두 뷰 삼각측량 최소 각도 4도
 - `--Mapper.multiple_models 0`: 하나의 모델만 생성
 
+
 4. Sparse → PLY 변환
 ![d4](image/d4.png)
+
 - `--input_path ./sparse/0`: 바이너리 결과 폴더
 - `--output_path ./sparse/0/ply_out/points3D.ply`: 생성될 PLY 파일 경로
 - `--output_type PLY`: PLY 형식으로 출력
 
+
 5. Sparse → TXT 변환
 ![d5](image/d5.png)
+
 - `--output_path` : ./sparse_txt: cameras.txt, images.txt, points3D.txt 생성
 
 - **visualize_person_hall.py**  
